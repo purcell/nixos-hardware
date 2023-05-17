@@ -37,6 +37,7 @@ with lib; (base: overlays': stdenvNoCC.mkDerivation {
         dtboWithExt="$TMPDIR/$(basename "${o.dtboFile}").dtbo"
         cp -r ${o.dtboFile} "$dtboWithExt"
 
+        echo dtmerge "$dtb.in" "$dtb" "$dtboWithExt"
         dtmerge "$dtb.in" "$dtb" "$dtboWithExt"
 
         echo "ok"
