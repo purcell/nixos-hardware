@@ -32,7 +32,7 @@
     };
   };
 
-  hardware.deviceTree.filter = lib.mkDefault "bcm2711-rpi-*.dtb";
+  hardware.deviceTree.filter = lib.mkDefault "bcm2711-rpi-4*.dtb";
 
 
   assertions = [
