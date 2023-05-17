@@ -40,13 +40,27 @@ in
             /plugin/;
 
             / {
-              compatible = "brcm,bcm2711";
+              compatible = "brcm,bcm2835";
 
               fragment@0 {
                 target = <&cma>;
                 __overlay__ {
                   size = <(${toString cfg.cma} * 1024 * 1024)>;
                 };
+              };
+
+              __overrides__ {
+                cma-512 = <&frag0>,"size:0=",<0x20000000>;
+                cma-448 = <&frag0>,"size:0=",<0x1c000000>;
+                cma-384 = <&frag0>,"size:0=",<0x18000000>;
+                cma-320 = <&frag0>,"size:0=",<0x14000000>;
+                cma-256 = <&frag0>,"size:0=",<0x10000000>;
+                cma-192 = <&frag0>,"size:0=",<0xC000000>;
+                cma-128 = <&frag0>,"size:0=",<0x8000000>;
+                cma-96  = <&frag0>,"size:0=",<0x6000000>;
+                cma-64  = <&frag0>,"size:0=",<0x4000000>;
+                cma-size = <&frag0>,"size:0"; /* in bytes, 4MB aligned */
+                cma-default = <0>,"-0";
               };
             };
           '';
@@ -62,6 +76,10 @@ in
 
             / {
               compatible = "brcm,bcm2711";
+
+              &frag0 {
+                size = <((512-4)*1024*1024)>;
+              };
 
               fragment@1 {
                 target = <&fb>;
