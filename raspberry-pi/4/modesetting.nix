@@ -77,10 +77,6 @@ in
             / {
               compatible = "brcm,bcm2711";
 
-              &frag0 {
-                size = <((512-4)*1024*1024)>;
-              };
-
               fragment@1 {
                 target = <&fb>;
                 __overlay__ {
