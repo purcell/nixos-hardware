@@ -52,9 +52,9 @@ in
           '';
         }
         # Equivalent to:
-        # https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/vc4-fkms-v3d-overlay.dts
+        # https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/vc4-fkms-v3d-pi4-overlay.dts
         {
-          name = "rpi4-vc4-fkms-v3d-overlay";
+          name = "rpi4-vc4-fkms-v3d-pi4-overlay";
           dtsText = ''
             // SPDX-License-Identifier: GPL-2.0
             /dts-v1/;
